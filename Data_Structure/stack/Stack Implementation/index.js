@@ -59,4 +59,3 @@ console.log("Stack after pop:", stack);
 
 stack.swap();
 console.log("Stack after swap:", stack);
-
