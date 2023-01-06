@@ -1,22 +1,23 @@
 class MyStack {
+    private items;
     constructor() {
-
+        this.items = [];
     }
 
     push(x: number): void {
-
+        this.items.push(x);
     }
 
     pop(): number {
-
+        return this.items.pop();
     }
 
     top(): number {
-
+        return this.items[this.items.length - 1];
     }
 
     empty(): boolean {
-
+        return this.items.length === 0;
     }
 }
 
