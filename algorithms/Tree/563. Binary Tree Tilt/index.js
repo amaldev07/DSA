@@ -17,14 +17,14 @@ function findTilt(root) {
     return root;
 };
 function dfs(node) {
-    if (root.left == null && root.right == null) {
+    if (node.left == null && node.right == null) {
         let val = node.val;
         node.val = 0;
         return val;
     }
     let l = dfs(node.left);
     let r = dfs(node.left);
-    sum = l + r + node.val;
+    let sum = l + r + node.val;
     node.val = Math.abs(l - r);
     return sum;
 }
