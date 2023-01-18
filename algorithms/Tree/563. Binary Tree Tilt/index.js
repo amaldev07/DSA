@@ -13,22 +13,21 @@
  */
 
 function findTilt(root) {
-    let n = root;
-    dfs(root);
-    console.log(root)
-    console.log(n)
-    return 1;
-  };
-  function dfs(node) {
+    if (!root) return 0;
+    return dfs(root).r;
+};
+function dfs(node) {
+    /* s-> sum
+    ns-> node sum
+     */
     if (node.left == null && node.right == null) {
-      let val = node.val;
-      node.val = 0;
-      return val;
+        let val = node.val;
+        node.val = 0;
+        return { s: val, ns: 0 };
     }
-    let l = (node.left) ? dfs(node.left) : 0;
-    let r = (node.right) ? dfs(node.right) : 0;
-    let sum = l + r + node.val;
-    node.val = Math.abs(l - r);
-    return sum;
-  }
-  
+    let l = (node.left) ? dfs(node.left) : { s: 0, ns: 0 };
+    let r = (node.right) ? dfs(node.right) : { s: 0, ns: 0 };
+    let sum = l.s + r.s + node.val;
+    node.val = Math.abs(l.s - r.s);
+    return { s: sum, ns: node.val + l.ns + r.ns };
+}
