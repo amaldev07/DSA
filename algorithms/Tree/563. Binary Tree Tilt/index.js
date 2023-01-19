@@ -14,7 +14,7 @@
 
 function findTilt(root) {
     if (!root) return 0;
-    return dfs(root).r;
+    return dfs(root).ns;
 };
 function dfs(node) {
     /* s-> sum
