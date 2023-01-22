@@ -26,5 +26,5 @@ function dfs(node) {
 }
 function getM1M2(vals) {
     let sVals = vals.sort();
-    return { sVals[0], sVals[1]};
+    return { m1: sVals[0], m2: sVals[1] };
 }
