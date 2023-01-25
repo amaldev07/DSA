@@ -13,23 +13,33 @@
  */
 
 function levelOrderBottom(root) {
+    let maxDepth = getMaxDepth(root);
+    console.log("MaxDepth : -" + maxDepth);
     let ar = [];
-    dfs(root, 0, ar);
-    return ar.reverse();
+    dfs(root, 0, maxDepth, ar);
+    return ar;
 };
-function dfs(node, n, ar) {
-    if(node == null) return;
+function dfs(node, n, depth, ar) {
+    if (node == null) return;
     if (node.left == null && node.right == null) {
-        if (!ar[n]) {
-            ar[n] = [];
+        let i = depth - 1 - n;
+        if (!ar[i]) {
+            ar[i] = [];
         }
-        ar[n].push(node.val);
+        ar[i].push(node.val);
         return;
     }
-    if (!ar[n]) {
-        ar[n] = [];
+    let i = depth - 1 - n;
+    if (!ar[i]) {
+        ar[i] = [];
     }
-    ar[n].push(node.val);
-    dfs(node.left, n + 1, ar);
-    dfs(node.right, n + 1, ar);
+    ar[i].push(node.val);
+    dfs(node.left, n + 1, depth, ar);
+    dfs(node.right, n + 1, depth, ar);
+}
+function getMaxDepth(node) {
+    if (node == null) return 0;
+    let l = getMaxDepth(node.left);
+    let r = getMaxDepth(node.right);
+    return (Math.max(l, r) + 1);
 }
