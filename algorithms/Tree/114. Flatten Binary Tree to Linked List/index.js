@@ -15,12 +15,14 @@
 /**
  Do not return anything, modify root in-place instead.
  */
-let previous = null;
 function flatten(root) {
-    if (root == null) return;
-    flatten(root.right);
-    flatten(root.left);
-    root.right = previous;
-    root.left = null;
-    previous = node;
+    dfs(root, [null])
 };
+function dfs(root, previous) {
+    if (root == null) return;
+    dfs(root.right, previous);
+    dfs(root.left, previous);
+    root.right = previous[0];
+    root.left = null;
+    previous[0] = root;
+}
