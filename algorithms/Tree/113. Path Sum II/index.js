@@ -29,6 +29,6 @@ function dfs(node, sum, targetSum) {
     sum = sum + node.val;
     sum = node.val + sum;
     ar.push(node.val);
-    if (node.left) dfs(node.left, sum, targetSum);
-    if (node.right) dfs(node.right, sum, targetSum);
+    if (node.left) dfs(node.left, sum, ar, out);
+    if (node.right) dfs(node.right, sum, ar, out);
 }
