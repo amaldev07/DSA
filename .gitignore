@@ -5,7 +5,7 @@
 
 # Google Drive-specific files
 *.tmp.driveupload/
-*.node_modules/
+*.data structure\dsa\ts-data-struct-starter\node_modules\
 # *.sln.docstates
 
 # # User-specific files (MonoDevelop/Xamarin Studio)
