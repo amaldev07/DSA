@@ -4,6 +4,7 @@ function twoSum(nums: number[], target: number): number[] {
     for (let i = 0; i < nums, length; i++) {
         let x = nums[i];
         let y = target - x;
+        
         if (nums.includes(y)) {
             output = [nums.indexOf(x), nums.indexOf(y)]
             break;
