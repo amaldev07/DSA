@@ -1,3 +1,4 @@
+// Correct method
 function arraySubsets1(arr) {
     debugger;
     let outer = [];
