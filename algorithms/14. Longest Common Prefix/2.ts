@@ -5,7 +5,8 @@ function longestCommonPrefix(strs) {
     if (strs.length == 1) {
         return strs[0];
     }
-    return rec(strs, 0, '', 0);
+    return rec(strs, 0, '', 0); 
+    //(inputStringArray, i=0 to length of array, prefix, prefix inxed)
 };
 
 function rec(strs, i, pre, pc) {
