@@ -2,19 +2,34 @@
  Do not return anything, modify nums in-place instead.
  */
 function rotate(nums: number[], k: number): void {
-    for (let i = 0; i < Math.floor(nums.length); i++) {
-        let temp = nums[i];
-        nums[i] = nums[nums.length - 1 - i];
-        nums[nums.length - 1 - i] = temp;
+    k = k % nums.length;
+    let l = 0;
+    let r = nums.length - 1;
+    while (l < r) {
+        let temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+        l = l + 1;
+        r = r - 1
     }
-    for (let i = 0; i < Math.floor(k / 2); i++) {
-        let temp = nums[i];
-        nums[i] = nums[nums.length - 1 - i];
-        nums[nums.length - 1 - i] = temp;
+
+    l = 0;
+    r = k - 1;
+    while (l < r) {
+        let temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+        l = l + 1;
+        r = r - 1
     }
-    for (let i = k; i < Math.floor(nums.length / 2); i++) {
-        let temp = nums[i];
-        nums[i] = nums[nums.length - 1 - i];
-        nums[nums.length - 1 - i] = temp;
+
+    l = k;
+    r = nums.length - 1;
+    while (l < r) {
+        let temp = nums[l];
+        nums[l] = nums[r];
+        nums[r] = temp;
+        l = l + 1;
+        r = r - 1
     }
 };
