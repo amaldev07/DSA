@@ -11,7 +11,9 @@ function getSum(s) {
 function recu(up, out) {
     debugger;
     if (getSum(up) == 10 && up.length == 5) {
-        out.push(up);
+        out.push(up.substring(1));
+        /* up.substring(1) is for '01117' => '1117'
+        to remove the first 0 */
         return;
     } else if (getSum(up) >= 10 || up.length > 5) {
         return;
@@ -19,8 +21,6 @@ function recu(up, out) {
     let upSum = getSum(up);
     let end = 10 - upSum;
     for (let i = 1; i <= end; i++) {
-        // if ((upSum + i) <= 10 && (up + i).length < 6) {
         recu(up + i, out)
-        // }
     }
 }
