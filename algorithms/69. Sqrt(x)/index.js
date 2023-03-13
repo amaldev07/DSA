@@ -1,4 +1,5 @@
-function mySqrt(x: number): number {
+function mySqrtJs(x) {
+    debugger;
     if (x < 2) {
         return x;
     }
