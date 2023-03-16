@@ -4,18 +4,20 @@ function isValid(s: string): boolean {
     if (s.length === 0) return true;
     if (s.length % 2 === 1) return false;
     let paraths = {
-        '{': '}',
-        '(': ')',
-        '[': ']',
+        '}': '{',
+        ')': '(',
+        ']': '[',
     };
-    let end = Math.floor(s.length / 2);
-    let start = end - 1;
-    while (start >= 0) {
-        if (s[end] !== paraths[s[start]]) {
-            return false;
+    let openParaths = ['(', '[', '{']
+    let stack: string[] = [];
+    for (let i = 0; i < s.length; i++) {
+        if (openParaths.includes(s[i])) {
+            stack.push(s[i]);
+        } else {
+            if (paraths[s[i]] == stack[stack.length - 1]) {
+                stack.pop();
+            }
         }
-        start = start - 1;
-        end = end + 1;
     }
-    return true;
+    return stack.length > 0 ? false : true;;
 };
