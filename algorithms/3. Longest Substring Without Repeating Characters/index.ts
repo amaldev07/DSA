@@ -1,6 +1,6 @@
 function lengthOfLongestSubstring(s: string): number {
     let l = 0;
-    let mySet = [];
+    let mySet: string[] = [];
     let max = 0;
     for (let i = 0; i < s.length; i++) {
         while (mySet.includes(s[i])) {
