@@ -5,6 +5,7 @@
 
 # Google Drive-specific files
 *.tmp.driveupload/
+*..tmp.drivedownload/
 # *data structure\dsa\dataStructStarter\node_modules\
 **/node_modules
 # *.sln.docstates
