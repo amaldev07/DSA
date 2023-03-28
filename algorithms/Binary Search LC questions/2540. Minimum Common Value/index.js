@@ -1,7 +1,8 @@
-function getCommon(nums1: number[], nums2: number[]): number {
+function getCommon1(nums1, nums2) {
     let minVal = -1;
+    debugger;
     for (let i = 0; i < nums1.length; i++) {
-        minVal = doBinarySearch2540(nums2, nums1[i]);
+        minVal = doBinarySearch25401(nums2, nums1[i]);
         if (minVal >= 0) {
             break;
         }
@@ -9,7 +10,7 @@ function getCommon(nums1: number[], nums2: number[]): number {
     return minVal;
 };
 
-function doBinarySearch2540(nums: number[], target: number): number {
+function doBinarySearch25401(nums, target) {
     let s = 0;
     let e = nums.length - 1;
     while (s <= e) {
@@ -24,3 +25,4 @@ function doBinarySearch2540(nums: number[], target: number): number {
     }
     return -1;
 };
+getCommon1([1, 2, 3], [2, 4]);
