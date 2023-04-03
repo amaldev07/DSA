@@ -58,4 +58,4 @@ stack.pop();
 console.log("Stack after pop:", stack);
 
 stack.swap();
-console.log("Stack after swap:", stack); 
+console.log("Stack after swap:", stack);
