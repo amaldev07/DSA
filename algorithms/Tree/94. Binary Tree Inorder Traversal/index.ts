@@ -1,6 +1,6 @@
 
 /* Definition for a binary tree node. */
-class TreeNode {
+/* class TreeNode {
     val: number
     left: TreeNode | null
     right: TreeNode | null
@@ -9,7 +9,7 @@ class TreeNode {
         this.left = (left === undefined ? null : left)
         this.right = (right === undefined ? null : right)
     }
-}
+} */
 
 
 function inorderTraversal1(root: TreeNode | null): number[] {
