@@ -17,20 +17,24 @@ function sumOfLeftLeaves(root: TreeNode | null): number {
 function dfsSum(root: TreeNode | null): number {
     let l = 0;
     let r = 0;
-    if (isLeaf(root?.left)) {
-        l = root?.left?.val;
-    } else {
-        l = dfsSum(root && root?.left);
+    if (root?.left) {
+        if (isLeaf(root?.left)) {
+            l = root?.left?.val;
+        } else {
+            l = dfsSum(root && root?.left);
+        }
     }
-    if (isLeaf(root?.right)) {
-        r = 0;
-    } else {
-        r = dfsSum(root && root?.right);
+    if (root?.right) {
+        if (isLeaf(root?.right)) {
+            r = 0;
+        } else {
+            r = dfsSum(root && root?.right);
+        }
     }
     return l + r;
 }
 
-function isLeaf(node) {
+function isLeaf(node): boolean {
     if (node && !node.left && !node.right) {
         return true;
     }
