@@ -1,4 +1,4 @@
-function romanToInt(s: string): number {
+function romanToIntJs(s)  {
     let ms = new Map([
         ['I', 1],
         ['V', 5],
@@ -7,8 +7,9 @@ function romanToInt(s: string): number {
         ['C', 100],
         ['D', 500],
         ['M', 1000]]);
-    let sum = 0;
+    let sum = 0; 
     let i = 0;
+    debugger;
     while (i <= s.length - 1) {
         let ch = s[i];
         let val = ms.get(s[i]) || 0;
@@ -36,3 +37,4 @@ function romanToInt(s: string): number {
     }
     return sum;
 };
+romanToIntJs("MCMXCIV");
