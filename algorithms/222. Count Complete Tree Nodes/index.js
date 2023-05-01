@@ -12,6 +12,8 @@
  * }
  */
 
+/* 
+Method 1 : Using extra array
 function countNodes(root) {
     let el = [];
     dfs(root, el);
@@ -24,4 +26,17 @@ function dfs(node, el) {
     el.push(node.val);
     dfs(node.left, el);
     dfs(node.right, el);
+} */
+
+/* Method 2: Without using an array */
+function countNodes(root) {
+    return dfs(root);
+};
+function dfs(node) {
+    if (node == null) {
+        return 0;
+    }
+    let l = dfs(node.left);
+    let r = dfs(node.right);
+    return l + r + 1
 }
