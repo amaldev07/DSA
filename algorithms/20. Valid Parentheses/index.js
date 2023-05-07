@@ -1,6 +1,5 @@
-// https://leetcode.com/problems/valid-parentheses/
-// https://www.youtube.com/watch?v=9kmUaXrjizQ
-function isValid(s: string): boolean {
+function isValidJs(s)  {
+    debugger;
     if (s.length === 0) return true;
     if (s.length % 2 === 1) return false;
     let paraths = {
@@ -9,17 +8,18 @@ function isValid(s: string): boolean {
         ']': '[',
     };
     let openParaths = ['(', '[', '{']
-    let stack: string[] = [];
+    let stack = [];
     for (let i = 0; i < s.length; i++) {
         if (openParaths.includes(s[i])) {
             stack.push(s[i]);
         } else {
             if (paraths[s[i]] == stack[stack.length - 1]) {
                 stack.pop();
-            } else {
+            } else{
                 return false;
             }
         }
     }
     return stack.length > 0 ? false : true;;
 };
+isValidJs("([}}])");
