@@ -1,40 +1,50 @@
-function search1(nums, target) {
+function search(nums, target) {
     debugger;
-    let middle = findMiddle1(nums);
-    let [s, e] = [0, nums.length - 1];
-    if (target >= nums[0] && target <= nums[middle]) {
-        [s, e] = [0, middle];
-    } else {
-        [s, e] = [middle + 1, nums.length - 1];
+    let pivot = pivotInRotatedArray(nums);
+    if (target == nums[pivot]) {
+        return pivot;
     }
-    return binarySearch331(nums, target, s, e);
+    else if (target >= nums[0] && target <= nums[pivot]) {
+        return binarySearch(nums, 0, pivot, target);
+    } else {
+        return binarySearch(nums, pivot + 1, nums.length - 1, target);
+    }
 };
-search1([5,1,3], 1);
-function binarySearch331(nums, target, s, e) {
-    while (s <= e) {
-        let m = s + Math.floor((e - s) / 2);
-        if (nums[m] > target) {
-            e = m - 1;
-        } else if (nums[m] < target) {
-            s = m + 1
+function binarySearch(ary, low, high, searchNo) {
+    while (low <= high) {
+        // let mid = Math.floor((low + high) / 2);
+        let mid = Math.floor(low + ((high - low) / 2));
+        if (searchNo > ary[mid]) {
+            low = mid + 1;
+        } else if (searchNo < ary[mid]) {
+            high = mid - 1;
         } else {
-            return m;
+            return mid;
         }
     }
     return -1;
 }
-function findMiddle1(nums) {
+
+function pivotInRotatedArray(ar) {
     let s = 0;
-    let e = nums.length - 1;
+    let e = ar.length - 1;
     while (s <= e) {
-        let m = s + Math.floor((e - s) / 2);
+        let m = Math.floor(s + ((e - s) / 2));
         if (s == e) {
             return s;
-        } else if (nums[m] < nums[m + 1]) {
-            s = m + 1;
-        } else if (nums[m] > nums[m + 1]) {
-            e = m;
+        }
+        else if (ar[m] > ar[m + 1]) {
+            return m;
+        } else {
+            if (ar[s] == ar[m]) {
+                s = m + 1;
+            } else if (ar[s] < ar[m]) {
+                s = m;
+            } else if (ar[s] > ar[m]) {
+                e = m;
+            }
         }
     }
-    return -1;
-};
+}
+
+search([1, 3], 0);
