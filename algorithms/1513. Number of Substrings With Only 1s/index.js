@@ -6,14 +6,14 @@ function numSub(s) {
         if (s[i] == '1') {
             count = count + 1;
         } else {
-            permuSum = (permuSum + permutation(count));
+            permuSum = (permuSum + permutation(count)) % (10 ** 9 + 7);
             count = 0;
         }
     }
-    permuSum = (permuSum + permutation(count));
+    permuSum = (permuSum + permutation(count)) % (10 ** 9 + 7);
     return permuSum;
 }
 
 function permutation(n) {
-    return (n * (n + 1) / 2);
+    return (n * (n + 1) / 2) % (10 ** 9 + 7);
 }
