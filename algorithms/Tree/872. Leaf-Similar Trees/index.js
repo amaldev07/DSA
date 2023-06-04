@@ -15,7 +15,6 @@
 function leafSimilar(root1: TreeNode | null, root2: TreeNode | null): boolean {
     let out = [];
     dfs(root1, out, false);
-    console.log(out)
     let res = dfs(root2, out, true);
     if (out.length > 0) return false;
     return res;
@@ -24,10 +23,8 @@ function dfs(node, out, flag) {
     if (node == null) return true;
     if (node.left == null && node.right == null) {
         if (flag == false) {
-            console.log(node.val)
             out.push(node.val);
         } else {
-            console.log(out, node.val)
             if (out.length <= 0) return false;
             let el = out.shift();
             if (el !== node.val) return false;
@@ -35,6 +32,9 @@ function dfs(node, out, flag) {
         }
     }
     let l = dfs(node.left, out, flag);
+    if(l==false) return false;
     let r = dfs(node.right, out, flag);
     return l && r;
 }
+
+ 
