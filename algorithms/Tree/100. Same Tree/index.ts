@@ -12,14 +12,29 @@
   } */
 
 
-/* function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
     return dfs(p, q);
 };
-function dfs(p: TreeNode | null, q: TreeNode | null): boolean {
-    // if (root == null) {
-    //     return [];
-    // }
-    //  let l = dfs(p?.left);
-    //  let l = dfs(p?.left);
-    return false;
-} */
+function dfs(p, q) {
+    if (p == null && q == null) {
+        return true;
+    }
+    if (p == null || q == null) return false;
+    if (p.val != q.val) return false;
+    let l = dfs(p.left, q.left);
+    let r = dfs(p.right, q.right);
+    return l && r;
+}
+
+/* Better solution below - Same logic */
+function isSameTree(p: TreeNode | null, q: TreeNode | null): boolean {
+    return dfs(p, q);
+};
+function dfs(p, q) {
+    if (p == null || q == null) {
+        return (p == q);
+    }
+    return (p.val == q.val) &&
+        dfs(p.left, q.left) &&
+        dfs(p.right, q.right);
+}
