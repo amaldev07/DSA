@@ -12,7 +12,7 @@
  * }
  */
 
-function levelOrder(root: TreeNode | null): number[][] {
+function levelOrder(root: TreeNode | null): number[][] { 
     if(!root) return [];
    let out = [];
     let queue = [];
