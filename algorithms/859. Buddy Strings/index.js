@@ -27,7 +27,7 @@ function buddyStrings(s, goal) {
 
     }
 };
-function hassameCharCountMorethanTwo(s) {
+function hassameCharCountMorethanTwo(s) { 
     let counter = {};
     for (let i = 0; i < s.length; i++) {
         counter[s[i]] = counter[s[i]] ? counter[s[i]] + 1 : 1;
