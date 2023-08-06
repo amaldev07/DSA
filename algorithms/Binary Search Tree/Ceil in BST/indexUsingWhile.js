@@ -5,6 +5,10 @@ If Ceil could not be found, return -1. */
 function findCeil(root, val) {
     let ceil = -1;
     while (root != null) {
+        if (root.val == val) {
+            ceil = root.val;
+            return ceil;
+        }
         if (val > root.val) {
             root = root.right;
         } else {
