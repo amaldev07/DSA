@@ -1,20 +1,15 @@
 function findDisappearedNumbers(nums) {
     debugger;
-    nums.sort();
-    let target = nums[nums.length - 1];
-    let no = 1;
-    let i = 0;
-    let result = [];
-    while (no <= target) {
-        if (nums[i] != no) {
-            result.push(nums[i])
-            i = i + 1;
-            // no = no + 1;
-        } else {
-            no = no + 1;
-            i = i + 1;
+    let appeared = new Array(nums.length + 1).fill(0);
+    let output = [];
+    for (let i = 0; i < nums.length; i++) {
+        appeared[nums[i]] = appeared[nums[i]] + 1;
+    }
+    for (let i = 1; i < appeared.length; i++) {
+        if (appeared[i] == 0) {
+            output.push(i)
         }
     }
-    return result;
+    return output;
 }
-findDisappearedNumbers([4, 3, 2, 7, 8, 2, 3, 1]);
+findDisappearedNumbers([4,3,2,7,8,2,3,1]);
