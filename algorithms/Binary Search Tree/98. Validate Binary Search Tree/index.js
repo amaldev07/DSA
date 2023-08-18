@@ -16,6 +16,7 @@ function isValidBST(root) {
     return isBST(root, Number.MIN_VALUE, Number.MAX_VALUE);
 };
 function isBST(node, min, max) {
+    if (node == null) return true;
     if (node.val > min && node.val < max) {
         let l = isBST(node.left, min, node.val);
         let r = isBST(node.right, node.val, max);
