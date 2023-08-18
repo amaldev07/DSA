@@ -13,5 +13,5 @@
  */
 
 function isValidBST(root) {
-
+    return isBST(root, Number.MIN_VALUE, Number.MAX_VALUE);
 };
