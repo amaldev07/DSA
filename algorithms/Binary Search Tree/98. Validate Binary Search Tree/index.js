@@ -13,7 +13,7 @@
  */
 
 function isValidBST(root) {
-    return isBST(root, Number.MIN_VALUE, Number.MAX_VALUE);
+    return isBST(root, -Infinity, Infinity);
 };
 function isBST(node, min, max) {
     if (node == null) return true;
