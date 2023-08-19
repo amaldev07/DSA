@@ -10,6 +10,7 @@
  * }
  */
 
+/* TypeScript - Floyd tortoise and hare algorithm - Linked List */
 function hasCycle(head) {
     let hm = new Map();
     let slow = head;
