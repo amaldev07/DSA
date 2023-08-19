@@ -8,10 +8,10 @@ function maxArea(height) {
     let j = height.length - 1;
     while (i < j) {
         maxArea = Math.max(maxArea, getArea(height[i], height[j], (j - i)));
-        if (height[i + 1] > height[j - 1]) {
-            i = i + 1;
+        if (height[i] > height[j]) {
+            j = j- 1;
         } else {
-            j = j - 1;
+            i=i+ 1;
         }
     }
     return maxArea;
