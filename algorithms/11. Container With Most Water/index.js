@@ -2,6 +2,7 @@
 start moving i  and j in such a way that we wnat oto keep the most height
 if the ext one in left is small then  move right to one before */
 function maxArea(height) {
+    debugger;
     let maxArea = 0;
     let i = 0;
     let j = height.length - 1;
@@ -19,3 +20,4 @@ function getArea(x, y, w) {
     let min = Math.min(x, y);
     return min * w;
 }
+maxArea([1, 2, 4, 3])
