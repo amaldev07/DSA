@@ -1,3 +1,3 @@
-function rob(nums: number[]): number {
+function rob(nums) {
 
 };
