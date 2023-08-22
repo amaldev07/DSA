@@ -1,3 +1,3 @@
-function insert(intervals: number[][], newInterval: number[]): number[][] {
+function insert(intervals, newInterval) {
 
 };
