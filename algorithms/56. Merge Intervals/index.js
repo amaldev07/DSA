@@ -1,19 +1,21 @@
 function merge(intervals) {
     // [[1,3],[2,6],[8,10],[15,18]]
-    let out = [];
-    let start = 0;
-    let end = 0;
-    for (let i = 0; i < intervals.length; i++) {
-        let el = intervals[i];
-        if (start < el[0] && end < el[0]) {
-            start = el[0];
-            end = el[1];
+    intervals.sort((x,y)=>x[0]<y[0]);
+    let i = 0;
+    let c = 0;
+    let len = intervals.length;
+    while (i < len - 1) {
+        let f = intervals[i];
+        let s = intervals[i + 1];
+        if (f[1] >= s[0] || s[1]<=f[1]) {
+            s[0] = Math.min(f[0], s[0]);
+            s[1] = Math.max(f[1], s[1]);
+            c= c+1;
+            i = i + 1;
         } else {
-            start = Math.min(el[0], start);
-            end = Math.max(el[0], end);
+            i = i + 1;
         }
-        out.push([start, end]);
     }
-    return out;
+    return intervals.slice(c);
 
 };
