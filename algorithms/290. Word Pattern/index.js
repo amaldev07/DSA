@@ -1,3 +1,3 @@
-function wordPattern(pattern: string, s: string): boolean {
+function wordPattern(pattern, s) {
 
 };
