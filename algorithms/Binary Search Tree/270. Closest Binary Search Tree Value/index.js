@@ -13,5 +13,9 @@
  */
 
 function closestValue(root, target) {
-
+    return dfs(root, target, root.val);
+};
+function dfs(node, target, val) {
+    if (node == null) return val;
+    
 };
