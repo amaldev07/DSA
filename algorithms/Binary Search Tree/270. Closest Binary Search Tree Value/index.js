@@ -19,8 +19,13 @@ function dfs(node, target, val) {
     if (node == null) return val;
     let v1 = Math.abs(node.val - target);
     let v2 = Math.abs(val - target);
-    val = v1 < v2 ? v1 : v2;
-    if (node.val < target) {
+    if (v1 == v2) {
+        val = node.val < val ? node.val : val;
+    } else {
+        val = v1 < v2 ? node.val : val;
+    }
+    console.log(val)
+    if (node.val > target) {
         return dfs(node.left, target, val);
     } else {
         return dfs(node.right, target, val);
