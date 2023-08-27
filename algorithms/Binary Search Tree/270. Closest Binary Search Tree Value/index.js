@@ -12,6 +12,6 @@
  * }
  */
 
-function closestValue(root: TreeNode | null, target: number): number {
-    return 1;
-   };
+function closestValue(root, target) {
+
+};
