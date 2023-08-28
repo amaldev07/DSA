@@ -13,18 +13,20 @@
  */
 
 function findSecondMinimumValue(root) {
-    return dfs(root).m2;
+    return bfs(root);
 };
-function dfs(node) {
-    if (node == null) {
-        return { m1: -1, m2: -1 };
+function bfs(node) {
+    if (node == null) return -1;
+    if (node.left == null && node.right == null) return -1;
+    let l = node.next.left;
+    let r = node.next.right;
+    if (node.val == l) l = bfs(node.l);
+    if (node.val == r) r = bfs(node.l);
+    if (l != -1 && r != -1) {
+        return Math.max(l, r)
+    } else if (l == -1) {
+        return r;
+    } else {
+        return l;
     }
-    let l = dfs(node.left);
-    let r = dfs(node.right);
-    let m1m2 = getM1M2([l.m1, l.m2, r.m1, r.m2, node.val]);
-    return { m1: m1m2.m1, m2: m1m2.m2 }
-}
-function getM1M2(vals) {
-    let sVals = vals.sort();
-    return { m1: sVals[0], m2: sVals[1] };
 }
