@@ -21,7 +21,7 @@ function bfs(node) {
     let l = node.left.val;
     let r = node.right.val;
     if (node.val == l) l = bfs(node.l);
-    if (node.val == r) r = bfs(node.l);
+    if (node.val == r) r = bfs(node.r);
     if (l != -1 && r != -1) {
         return Math.max(l, r)
     } else if (l == -1) {
