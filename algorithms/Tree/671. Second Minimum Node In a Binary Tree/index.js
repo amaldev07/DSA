@@ -20,7 +20,7 @@ function bfs(node) {
     if (node.left == null && node.right == null) return -1;
     let l = node.left.val;
     let r = node.right.val;
-    if (node.val == l) l = bfs(node.left);
+    if (node.val == l) l = bfs(node.left); // go to left and find 
     if (node.val == r) r = bfs(node.right);
     if (l != -1 && r != -1) {
         return Math.min(l, r)
