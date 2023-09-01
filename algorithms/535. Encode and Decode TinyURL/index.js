@@ -4,11 +4,11 @@
 let baseUrl = "https://tinyUrl.com/"
 let hm = new Map();
 function encode(longUrl: string): string {
-    let encyUrl = fromCharCode(Math.random() * 100);
+    let encyUrl = String.fromCharCode(Math.random() * 100);
     while (hm.get(encyUrl) != null) {
-        encyUrl = encyUrl + fromCharCode(Math.random() * 100);
+        encyUrl = encyUrl + String.fromCharCode(Math.random() * 100);
     }
-    hm.set(longUrl, encyUrl)
+    hm.set(encyUrl, longUrl)
     return baseUrl + encyUrl;
 };
 
