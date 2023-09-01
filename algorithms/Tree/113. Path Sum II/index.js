@@ -15,20 +15,24 @@
 function pathSum(root, targetSum) {
     let ar = [];
     let out = [];
-    dfs(root, 0, ar, out, targetSum);
+    dfs(root, 0, '', out, targetSum);
     return out;
 };
 function dfs(node, sum, ar, out, targetSum) {
+    if (node == null) {
+        return;
+    }
     if (node.left == null && node.right == null) {
         sum = node.val + sum;
-        ar.push(node.val);
+        ar = ar + ((ar.length == 0) ? "" : ",") + node.val;
         if (sum == targetSum) {
-            out.push(ar)
+            out.push(ar.split(','))
+        } else {
+
         }
     }
     sum = sum + node.val;
-    sum = node.val + sum;
-    ar.push(node.val);
+    ar = ar + ((ar.length == 0) ? "" : ",") + node.val;
     if (node.left) dfs(node.left, sum, ar, out, targetSum);
     if (node.right) dfs(node.right, sum, ar, out, targetSum);
 }
