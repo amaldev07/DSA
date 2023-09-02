@@ -11,21 +11,29 @@
  *     }
  * }
  */
-
+// let c = 0;
 function pathSum(root, targetSum) {
-    let out = [0];
+    let out = [0]
     dfs(root, targetSum, out);
     return out[0];
 };
 function dfs(node, targetSum, out) {
-    if (node == null) return { ls: 0, rs: 0 };
-    let l = { ls: 0, rs: 0 };
-    let r = { ls: 0, rs: 0 };
-    if (node.left) l = dfs(node.left, targetSum, out);
-    if (node.right) r = dfs(node.right, targetSum, out);
-    let ls = l.ls + node.val;
-    let rs = l.ls + node.val;
-    if (ls == targetSum) out[0] = out[0] + 1;
-    if (rs == targetSum) out[0] = out[0] + 1;
-    return { ls, rs };
+    if (node == null) return;
+    helper(node, 0, targetSum, out);
+    if (node.left) dfs(node.left, targetSum, out);
+    if (node.right) dfs(node.right, targetSum, out);
+}
+function helper(node, sum, t, out) {
+    if (node == null) return;
+    if (node.left == null && node.right == null) {
+        sum = sum + node.val;
+        if (sum == t)  out[0] =  out[0] + 1;
+        console.log(  "xxxx---" + out[0])
+    }
+    sum = sum + node.val;
+    console.log(node.val + "---" + sum)
+    if (sum == t)  out[0]=  out[0]+ 1;
+    console.log(  "xxxx---" +  out[0])
+    if (node.left) helper(node.left, sum, t, out);
+    if (node.right) helper(node.right, sum, t, out);
 }
