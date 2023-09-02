@@ -15,18 +15,16 @@
 function findBottomLeftValue(root) {
     let maxInd = [0];
     let max = [root.val];
-    dfs(root, true, 0, maxInd, max);
+    dfs(root, 0, maxInd, max);
     return max[0];
 };
-function dfs(node, isLeft, i, maxInd, max) {
+function dfs(node, i, maxInd, max) {
     if (node.left == null && node.right == null) {
-        if (isLeft) {
-            if (i > maxInd[0]) {
-                maxInd[0] = i;
-                max[0] = node.val;
-            }
+        if (i > maxInd[0]) {
+            maxInd[0] = i;
+            max[0] = node.val;
         }
     }
-    if (node.left) dfs(node.left, true, i + 1, maxInd, max);
-    if (node.right) dfs(node.right, (((node.left) == null) ? true : false), i + 1, maxInd, max);
+    if (node.left) dfs(node.left, i + 1, maxInd, max);
+    if (node.right) dfs(node.right, i + 1, maxInd, max);
 }
