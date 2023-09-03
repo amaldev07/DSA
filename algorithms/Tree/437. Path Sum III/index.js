@@ -26,14 +26,14 @@ function helper(node, sum, t, out) {
     if (node == null) return;
     if (node.left == null && node.right == null) {
         sum = sum + node.val;
-        if (sum == t)  out[0] =  out[0] + 1;
-        console.log(  "xxxx---xx" + out[0])
+        if (sum == t) out[0] = out[0] + 1;
+        console.log("xxxx---xx" + out[0])
         return;
     }
     sum = sum + node.val;
     console.log(node.val + "---" + sum)
-    if (sum == t)  out[0]=  out[0]+ 1;
-    console.log(  "xxxx---" +  out[0])
+    if (sum == t) out[0] = out[0] + 1;
+    console.log("xxxx---" + out[0])
     if (node.left) helper(node.left, sum, t, out);
     if (node.right) helper(node.right, sum, t, out);
 }
