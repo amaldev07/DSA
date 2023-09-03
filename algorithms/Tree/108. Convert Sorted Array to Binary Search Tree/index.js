@@ -17,7 +17,7 @@ function sortedArrayToBST(nums: number[]): TreeNode | null {
 };
 function maketree(nums, s, e) {
     if (e > s) return null;
-    m = Math.floor(s + (e - s) / 2);
+    let m = Math.floor(s + (e - s) / 2);
     let root = new TreeNode(nums[m]);
     root.left = maketree(nums, s, m - 1);
     root.right = maketree(nums, m + 1, e);
