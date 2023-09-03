@@ -26,25 +26,26 @@
 
 // function sortedListToBST(head: ListNode | null): TreeNode | null {
 function sortedListToBST(head) {
-    return makeTree(head);
+    return makeBsTree(head);
 };
-function makeTree(head) {
-    if(head == null) return null
+function makeBsTree(head) {
+    if (head == null) return null;
     let mid = getMid(head);
-    let root = new TreeNode(mid.val);
-    root.left = makeTree(head);
-    root.right = makeTree(mid.next);
+    let root = new TreeNode(mid.val, null, null);
+    if (head == mid) return root; // otherwise this will end up in a infinite loop
+    root.left = makeBsTree(head);
+    root.right = makeBsTree(mid.next);
     return root;
 }
 function getMid(head) {
     let slow = head;
     let prev = head;
     let fast = head;
-    while (fast == null || fast.next == null) {
+    while (fast != null && fast.next != null) {
         prev = slow;
         slow = slow.next;
         fast = fast.next.next;
     }
-    prev.next = null;
+    if (prev != null) prev.next = null;
     return slow;
 }
