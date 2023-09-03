@@ -32,7 +32,8 @@ function makeBsTree(head) {
     if (head == null) return null;
     let mid = getMid(head);
     let root = new TreeNode(mid.val, null, null);
-    if (head == mid) return root; // otherwise this will end up in a infinite loop
+    if (head == mid) return root; // otherwise this will end up in a infinite loop to stop at 1,2,3 => on next step 
+    // it will be 1 onplay, so to stop at this point
     root.left = makeBsTree(head);
     root.right = makeBsTree(mid.next);
     return root;
