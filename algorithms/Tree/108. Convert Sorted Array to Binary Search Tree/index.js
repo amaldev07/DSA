@@ -12,7 +12,8 @@
  * }
  */
 
-function sortedArrayToBST(nums: number[]): TreeNode | null {
+// function sortedArrayToBST(nums: number[]): TreeNode | null {
+function sortedArrayToBST(nums) {
     return maketree(nums, 0, nums.length - 1);
 };
 function maketree(nums, s, e) {
