@@ -4,7 +4,8 @@ function levelOrderTraversal(root) {
     queue.push(root);
     while (queue.length > 0) {
         let tempout = [];
-        for (let i = 0; i < queue.length; i++) {
+        let length = queue.length;
+        for (let i = 0; i < length; i++) {
             let el = queue.shift();
             tempout.push(el.val);
             if (el.left) queue.push(el.left);
