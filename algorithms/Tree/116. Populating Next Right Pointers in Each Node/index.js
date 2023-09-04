@@ -13,7 +13,9 @@
  *     }
  * }
  */
-
+/* Find level order traversal
+then connect next to the current till there is no next
+[4,5,6] ---> [4->5->6] */
 function connect(root: Node | null): Node | null {
     /* let out = [] // [[1],[2,3],[4,5,6,7]] */
     let queue = [];
@@ -34,11 +36,11 @@ function connect(root: Node | null): Node | null {
             el[j].next = (el[j + 1]) ? el[j + 1] : null;
         }
     }
-   /*  for (let i = 0; i < out.length; i++) {
-        let el = out[i];
-        for (let j = 0; j < el.length; j++) {
-            el[j].next = (el[j + 1]) ? el[j + 1] : null;
-        }
-    } */
+    /*  for (let i = 0; i < out.length; i++) {
+         let el = out[i];
+         for (let j = 0; j < el.length; j++) {
+             el[j].next = (el[j + 1]) ? el[j + 1] : null;
+         }
+     } */
     return root;
 };
