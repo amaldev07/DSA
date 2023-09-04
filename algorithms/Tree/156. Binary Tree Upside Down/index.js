@@ -13,5 +13,15 @@
  */
 
 function upsideDownBinaryTree(root: TreeNode | null): TreeNode | null {
-
+    return dfs(root);
 };
+function dfs(node) {
+    if (node == null) return null;
+    if (node.left == null) return node;
+    let newRoot = dfs(node.left); // this will return the last left node
+    node.left.left = node.right;
+    node.left.right = node;
+    node.left = null;
+    node.right = null;
+    return newRoot;
+}
