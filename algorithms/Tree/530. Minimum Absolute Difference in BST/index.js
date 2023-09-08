@@ -23,7 +23,7 @@ function dfs(node, min) {
     let l = Number.MAX_VALUE;;
     let r = Number.MAX_VALUE;;
     if (node.left) l = Math.abs(node.val - node.left.val);
-    if (node.right) l = Math.abs(node.val - node.right.val);
+    if (node.right) r = Math.abs(node.val - node.right.val);
     min[0] = Math.min(min[0], l, r);
     if (node.left) dfs(node.left, min);
     if (node.right) dfs(node.right, min);
