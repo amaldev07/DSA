@@ -14,7 +14,7 @@
 
 function rightSideView(root: TreeNode | null): number[] {
     let q = [];
-    if (root != null) q.push(root)
+    if (root != null) q.push(root);
     let out = [];
     while (q.length > 0) {
         let len = q.length;
