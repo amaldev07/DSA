@@ -13,11 +13,12 @@
  */
 
 function rightSideView(root: TreeNode | null): number[] {
-    let q = [root];
+    let q = [];
+    if (root != null) q.push(root)
     let out = [];
     while (q.length > 0) {
         let len = q.length;
-        out.push(q[q.len - 1]);
+        out.push(q[q.length - 1].val);
         for (let i = 0; i < len; i++) {
             let el = q.shift();
             if (el.left) q.push(el.left);
