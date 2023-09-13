@@ -1,4 +1,4 @@
-class ListNode { 
+class ListNode {
     val: number
     next: ListNode | null
     constructor(val?: number, next?: ListNode | null) {
@@ -11,10 +11,10 @@ function middleNode(head: ListNode | null): ListNode | null {
     let count = rec(head, 0);
     let ret: ListNode | null = head;
     let half = (Math.floor(count / 2)) + 1;
-    let i=1;
+    let i = 1;
     while (i < half) {
         ret = ret.next;
-        i = i+1;
+        i = i + 1;
     }
     return ret;
 };
@@ -24,4 +24,14 @@ function rec(head: ListNode | null, count): number {
     }
     count = count + 1;
     return rec(head.next, count);
+}
+
+function middleNode(head: ListNode | null): ListNode | null {
+    let slow = head;
+    let fast = head;
+    while (slow?.next && fast?.next?.next) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    return (fast?.next == null) ? slow : slow?.next;
 }
