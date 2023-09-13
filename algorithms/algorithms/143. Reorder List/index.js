@@ -15,9 +15,14 @@
  */
 function reorderList(head: ListNode | null): void {
     let mid = middleNode(head);
-    let rev = reverseList(mid.next);
-
-
+    let second = reverseList(mid.next);
+    let first = head;
+    while (second.next != null) {
+        let temp = first.next;
+        second = second.next;
+        first.next.next = temp;
+        first=first.next.next;
+    }
 };
 function middleNode(head: ListNode | null): ListNode | null {
     let slow = head;
@@ -31,11 +36,11 @@ function middleNode(head: ListNode | null): ListNode | null {
 function reverseList(head: ListNode | null): ListNode | null {
     let current = head;
     let prev = null;
-    while(current!=null){
+    while (current != null) {
         let temp = current.next;
         current.next = prev;
         prev = current;
-        current= temp;
+        current = temp;
     }
     return prev;
 };
