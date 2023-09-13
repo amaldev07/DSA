@@ -20,6 +20,7 @@ function widthOfBinaryTree(root: TreeNode | null): number {
         let length = q.length;
         let first = 0;
         let last = 0;
+        console.log(q)
         for (let i = 0; i < length; i++) {
             let currEl = q.shift();
             let i = currEl.index - qMinIndex;
