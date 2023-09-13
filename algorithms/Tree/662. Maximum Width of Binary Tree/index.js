@@ -20,17 +20,16 @@ function widthOfBinaryTree(root: TreeNode | null): number {
         let length = q.length;
         let first = 0;
         let last = 0;
-        console.log(q)
         for (let i = 0; i < length; i++) {
             let currEl = q.shift();
-            let i = currEl.index - qMinIndex;
+            let ind = currEl.index - qMinIndex;
             if (i == 0) first = currEl.index;
             if (i == length - 1) last = currEl.index;
             if (currEl.node.left) {
-                q.push({ node: currEl.node.left, index: ((2 * 1) + 1) });
+                q.push({ node: currEl.node.left, index: ((2 * ind) + 1) });
             }
             if (currEl.node.right) {
-                q.push({ node: currEl.node.right, index: ((2 * 1) + 2) });
+                q.push({ node: currEl.node.right, index: ((2 * ind) + 2) });
             }
         }
         maxWidth = Math.max(maxWidth, (last - first + 1))
