@@ -4,7 +4,6 @@ function convert(s, numRows) {
     for (let row = 0; row < numRows; row++) {
         let i = row;
         let c = (numRows - 1) * 2;
-
         while (i < s.length) {
             res = res + s[i];
             i = i + c;
