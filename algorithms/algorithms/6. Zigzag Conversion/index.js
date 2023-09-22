@@ -1,14 +1,16 @@
-function convert(s: string, numRows: number): string {
+function convert(s, numRows) {
+    if (numRows == 1) return s;
     let res = '';
-    for (let r = 0; r < numRows; r++) {
-        let i = r;
+    for (let row = 0; row < numRows; row++) {
+        let i = row;
         let c = (numRows - 1) * 2;
-        if (r == 0 || r == numRows - 1){
-            c=c-2*r;
-        }
-        while(i<s.length){
-            res= res+s[i];
-            i =i+c;
+
+        while (i < s.length) {
+            res = res + s[i];
+            i = i + c;
+            if (row > 0 && row < (numRows - 1) && (i - (2 * row) < s.length)) {
+                res = res + s[i - (2 * row)];
+            }
         }
     }
     return res;
