@@ -1,11 +1,11 @@
 function threeSum(nums: number[]): number[][] {
     let res = [];
     for (let i = 0; i < nums.length - 2; i++) {
-        while (i > 0 && a[i] == a[i - 1]) i++;
+        while (i > 0 && (nums[i] == nums[i - 1])) i++;
         let j = i + 1;
         let k = nums.length - 1;
         while (j < k) {
-            let a = a[i];
+            let a = nums[i];
             let b = nums[i];
             let c = nums[i];
             if ((a + b + c) > 0) {
@@ -21,4 +21,5 @@ function threeSum(nums: number[]): number[][] {
             }
         }
     }
+    return res;
 };
