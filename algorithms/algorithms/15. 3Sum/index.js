@@ -1,9 +1,8 @@
 function threeSum(nums) {
-    debugger;
-    nums.sort.sort((a,b)=>a-b);
+    nums.sort((a, b) => a - b);
     let res = [];
     for (let i = 0; i < nums.length - 2; i++) {
-        while (i > 0 && (nums[i] == nums[i - 1])) {
+        if (i > 0 && (nums[i] == nums[i - 1])) {
             continue;
         };
         let j = i + 1;
@@ -31,5 +30,3 @@ function threeSum(nums) {
     }
     return res;
 };
-
-threeSum([-1, 0, 1, 2, -1, -4]);
