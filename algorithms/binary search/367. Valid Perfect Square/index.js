@@ -1,9 +1,8 @@
 function isPerfectSquare(num) {
-    debugger;
     let s = 1;
     let e = num;
     while (s <= e) {
-        let mid = Math.floor((s + (e - s)/2));
+        let mid = Math.floor((s + (e - s) / 2));
         let sqr = mid * mid;
         if (sqr == num) {
             return true;
