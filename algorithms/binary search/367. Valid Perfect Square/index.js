@@ -14,4 +14,4 @@ function isPerfectSquare(num) {
     }
     return false;
 };
-isPerfectSquare(16);
+// isPerfectSquare(16);
