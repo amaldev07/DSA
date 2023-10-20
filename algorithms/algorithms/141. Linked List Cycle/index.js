@@ -1,4 +1,4 @@
-/**
+ /**
  * Definition for singly-linked list.
  * class ListNode {
  *     val: number
@@ -12,7 +12,6 @@
 
 /* TypeScript - Floyd tortoise and hare algorithm - Linked List */
 function hasCycle(head) {
-    let hm = new Map();
     let slow = head;
     let fast = head;
     while (slow != null && fast != null && fast.next != null) {
