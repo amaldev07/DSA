@@ -1,3 +1,3 @@
-function findCircleNum(isConnected) {
+function findCircleNum(isConnected) { 
 
 };
