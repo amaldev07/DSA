@@ -30,4 +30,4 @@ function bfs(v, adjacencyList) {
     return bfsOut;
 }
 bfs(8, adjacencyList);
-/* Output ) [1, 2, 6, 3, 4, 7, 8, 5] */
+/* Output ) [1, 2, 6, 3, 4, 7, 8, 5] */ 
