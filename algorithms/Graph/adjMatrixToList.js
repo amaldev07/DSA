@@ -21,7 +21,6 @@ you may use the below one with some minimul changes to the above one */
 function matrixToAdjacencyList(matrix) {
     let n = matrix.length;
     const adjacencyList = []
-    debugger;
     for (let i = 0; i < n; i++) {
         adjacencyList[i] = [];
         for (let j = 0; j < n; j++) {
