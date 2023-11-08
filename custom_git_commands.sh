@@ -10,4 +10,4 @@ function customGitCommands() {
   git commit --amend --date "2023-11-$date 20:12:20"
   git push
 }
-customGitCommands "07"
+customGitCommands "$1"
