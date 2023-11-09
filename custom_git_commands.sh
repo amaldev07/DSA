@@ -11,3 +11,5 @@ function customGitCommands() {
   git push
 }
 customGitCommands "$1"
+
+# to call this from cmd ./custom_git_commands.sh "08"
