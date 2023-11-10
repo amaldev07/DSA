@@ -11,11 +11,12 @@ let adjacencyList = {
 
 /* where v is the no of nodes */
 function dfs(node, adjacencyList, vis, out) {
+    debugger;
     vis[node] = 1;
     out.push(node);
     let adjEl = adjacencyList[node];
     for (let i = 0; i < adjEl.length; i++) {
-        if (visited[adjEl[i]] !== 1) {
+        if (vis[adjEl[i]] !== 1) {
             dfs(adjEl[i], adjacencyList, vis, out);
         }
     }
