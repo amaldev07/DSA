@@ -6,19 +6,17 @@ function findCircleNum(isConnected) {
     for (let i = 0; i < n; i++) {
         if (vis[i] !== 1) {
             count = count + 1;
-            dfs(1, adjList, vis);
+            dfs(i, adjList, vis);
         }
     }
     return count;
 };
-function dfs(node, adjacencyList, vis, out) {
-    debugger;
+function dfs(node, adjacencyList, vis) {
     vis[node] = 1;
-    out.push(node);
     let adjEl = adjacencyList[node];
     for (let i = 0; i < adjEl.length; i++) {
         if (vis[adjEl[i]] !== 1) {
-            dfs(adjEl[i], adjacencyList, vis, out);
+            dfs(adjEl[i], adjacencyList, vis);
         }
     }
 }
