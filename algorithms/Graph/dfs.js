@@ -11,7 +11,6 @@ let adjacencyList = {
 
 /* where v is the no of nodes */
 function dfs(node, adjacencyList, vis, out) {
-    debugger;
     vis[node] = 1;
     out.push(node);
     let adjEl = adjacencyList[node];
