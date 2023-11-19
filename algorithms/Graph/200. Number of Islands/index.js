@@ -24,17 +24,18 @@ function bfs(i, j, vis, grid) {
         let el = q.pop();
         let r = el[0];
         let c = el[1];
-        for (let i = -1; i <= 1; i++)
-            for (let j = -1; j <= 1; j++) {
-                let newr = r + i;
-                let newc = c + j;
-                if (newr >= 0 && newr < n &&
-                    newc >= 0 && newc < m &&
-                    vis[newr][newc] != 1 && grid[newr][newc] == '1') {
-                    vis[newr][newc] = 1;
-                    q.push([newr, newc]);
-                }
+        let delrow = [0, 1, 0, -1];
+        let delCol = [-1, 0, 1, 0];
+        for (let i = 0; i < 4; i++) {
+            let newr = r + delrow[i];
+            let newc = c + delCol[i];
+            if (newr >= 0 && newr < n &&
+                newc >= 0 && newc < m &&
+                vis[newr][newc] != 1 && grid[newr][newc] == '1') {
+                vis[newr][newc] = 1;
+                q.push([newr, newc]);
             }
+        }
     }
 }
 function getEmptyVisArray(n, m) {
@@ -48,10 +49,10 @@ function getEmptyVisArray(n, m) {
     }
     return vis;
 }
-let grid = [
+/* let grid = [
     ["1", "1", "1", "1", "0"],
     ["1", "1", "0", "1", "0"],
     ["1", "1", "0", "0", "0"],
     ["0", "0", "0", "0", "0"]
 ];
-numIslands(grid);
+numIslands(grid); */
