@@ -28,7 +28,7 @@ function bfs(i, j, vis, grid) {
                 let newc = c + j;
                 if (newr >= 0 && newr < n &&
                     newc >= 0 && newc < m &&
-                    vis[i][j] == 0 && grid[i][j] == '1') {
+                    vis[newr][newc] == 0 && grid[newr][newc] == '1') {
                     vis[newr][newc] = 1;
                     q.push([newr, newc]);
                 }
