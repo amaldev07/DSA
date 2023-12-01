@@ -28,8 +28,8 @@ Method 1
   }
 ------------------------------------------
 Method 2
-using stack
-create a stack
+using hash map
+create a hm
   arr[] = {1, 5, 7, -1, 5}, sum = 6
 loop abpove arr
 take el 1
