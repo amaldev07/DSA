@@ -14,3 +14,15 @@ function maxOperations(nums: number[], k: number): number {
     }
     return count;
 };
+
+/* 
+Solution:-
+Create a hashmap
+loop through nums
+take x=nums[i]
+check k-x ==>y is available in hm,
+
+if not abailable add x to hm, with count 1
+if available and its count is greater than 0, decrace its count, and dont add x  to hm
+Return count
+*/
