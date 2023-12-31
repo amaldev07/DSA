@@ -1,3 +1,3 @@
-function floodFill(image: number[][], sr: number, sc: number, color: number): number[][] {
-    
+function floodFill(image, sr, sc, color) {
+
 };
