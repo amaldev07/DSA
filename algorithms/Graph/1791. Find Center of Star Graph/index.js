@@ -22,7 +22,7 @@ function findCenter(edges) {
 
     let maxCount = 0;
     let maxVal = -1;
-    for (let i = 1; i <= adjList.length; i++) {
+    for (let i = 1; i < adjList.length; i++) {
         if (adjList[i].length > maxCount) {
             maxCount = adjList[i].length;
             maxVal = i;
