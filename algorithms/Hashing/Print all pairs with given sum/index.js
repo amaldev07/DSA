@@ -9,25 +9,32 @@
     Input  :  arr[] = {2, 5, 17, -1}, 
             sum = 7
     Output :  (2, 5) 
-  ----------------------
-  Method 1
-  2 pointer
-  ------------------
-  let hm = new Map();
-  hm.set(1, 'val');
-  hm.get(1)
-
-  let hm =  new Map();
+----------------------
+Method 1
+2 pointer
+------------------
+  let hm = new Map(); //<el><count>
   for(let i =0;i<arr.length;i++){
-    hm.set(arr[i], arr[i]);
+    el = arr[i];
+    hm.set(el, hm.get(el)+1); 
   }
-
-  let pairs = [];
   for(let i =0;i<arr.length;i++){
-    let x = arr[i];
-    let y = sum =x;
-    
+   x = arr[i];
+   y = sum-x;
+   if(hm.get(y)){
+    loop though hm.get(y) , which is count 
+    add that much pairs to output pair array
+   }
   }
+------------------------------------------
+Method 2
+using stack
+create a stack
+  arr[] = {1, 5, 7, -1, 5}, sum = 6
+loop abpove arr
+take el 1
+check 5(6-1) is present in stack, if yes, create the pair
+add 1 to stack
 
   
 
