@@ -23,9 +23,9 @@ function twoSum(e, k) {
         let x = +key;
         let y = k - x;
         if (x != y) {
-            if (e.get(y)) return true;
+            if (value) return true;
         } else {
-            if (e.get(y) > 1) return true;
+            if (value > 1) return true;
         }
     }
     return false;
