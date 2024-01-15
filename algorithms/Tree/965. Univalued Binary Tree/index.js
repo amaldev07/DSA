@@ -17,10 +17,8 @@ function isUnivalTree(root) {
     let qArr = [];
     qArr.push(root);
     let val = root.val;
-    // let opArr = [];
     while (qArr.length > 0) {
         let firstElement = qArr.shift();
-        // opArr.push(firstElement.val);
         if (firstElement.left) {
             if (firstElement.left.val != val) return false;
             qArr.push(firstElement.left);
