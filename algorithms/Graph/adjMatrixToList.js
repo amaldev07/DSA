@@ -7,12 +7,11 @@ function matrixToAdjacencyList(matrix) {
         adjacencyList[i + 1] = [];
         for (let j = 0; j < n; j++) {
             if ((i != j) && matrix[i][j] == 1) {
-                adjacencyList[i+1].push(j+1);
+                adjacencyList[i + 1].push(j + 1);
             }
         }
     }
     return adjacencyList;
 }
-/* Input [[0, 1, 1], [1, 0, 1], [1, 1, 0]]; */
-// matrixToAdjacencyList([[0, 1, 1], [1, 0, 1], [1, 1, 0]]);
+matrixToAdjacencyList([[0, 1, 1], [1, 0, 1], [1, 1, 0]]);
 matrixToAdjacencyList([[1, 1, 0], [1, 1, 0], [0, 0, 1]]);
