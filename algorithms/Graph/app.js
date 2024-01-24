@@ -13,4 +13,5 @@ function loadScript(scriptName) {
 
     console.log(`${scriptName} loaded successfully`);
 }
-loadScript("dfs")
+// loadScript("dfs.js")
+loadScript("adjMatrixToList.js");
