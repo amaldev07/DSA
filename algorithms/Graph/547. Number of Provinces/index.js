@@ -1,9 +1,9 @@
 function findCircleNum(isConnected) {
+    let adjList = convertMatrixToAdjList(isConnected);
     let n = isConnected.length;
-    let adjList = matrixToAdjacencyList(isConnected, n);
-    let vis = new Array(n).fill(0);
+    let vis = new Array(n + 1).fill(0);
     let count = 0;
-    for (let i = 0; i < n; i++) {
+    for (let i = 1; i < n + 1; i++) {
         if (vis[i] !== 1) {
             count = count + 1;
             dfs(i, adjList, vis);
@@ -20,15 +20,17 @@ function dfs(node, adjacencyList, vis) {
         }
     }
 }
-function matrixToAdjacencyList(matrix, n) {
-    const adjacencyList = []
-    for (let i = 0; i < n; i++) {
-        adjacencyList[i] = [];
-        for (let j = 0; j < n; j++) {
-            if ((i != j) && (matrix[i][j] == 1)) {
-                adjacencyList[i].push(j);
+function convertMatrixToAdjList(matrix) {
+    const adjList = {};
+    // Iterate through the matrix
+    for (let i = 0; i < matrix.length; i++) {
+        adjList[i + 1] = []; // Initialize the adjacency list for node (i+1)
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (matrix[i][j] === 1) {
+                adjList[i + 1].push(j + 1); // Add node (j+1) to the adjacency list of node (i+1)
             }
         }
     }
-    return adjacencyList;
+
+    return adjList;
 }
