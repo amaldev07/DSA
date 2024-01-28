@@ -9,9 +9,10 @@ function loadScript(scriptName) {
     script.type = 'text/javascript';
 
     // Add the script to the document (in this case, to the body)
-    document.body.appendChild(script);c
+    document.body.appendChild(script);
 
     console.log(`${scriptName} loaded successfully`);
 }
 // loadScript("dfs.js")
-loadScript("adjMatrixToList.js");
+// loadScript("adjMatrixToList.js");
+loadScript("200. Number of Islands/index.js");
