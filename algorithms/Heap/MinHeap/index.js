@@ -10,11 +10,16 @@ function MinHeap() {
         return ((i * 2) + 2);
     }
 
+    function swap(parentIndex, index) {
+        [heap[parentIndex], heap[index]] = [heap[index], heap[parentIndex]];
+    }
+
     function insert(val) {
         heap.push(val);
         heapifyUp();
         console.log(heap);
     }
+
     function heapifyUp() {
         let index = heap.length - 1;
         while (index > 0) {
@@ -25,9 +30,7 @@ function MinHeap() {
             index = parentIndex;
         }
     }
-    function swap(parentIndex, index) {
-        [heap[parentIndex], heap[index]] = [heap[index], heap[parentIndex]];
-    }
+
 
     return { insert };
 }
