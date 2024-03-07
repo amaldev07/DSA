@@ -45,21 +45,33 @@ function MinHeap() {
         let index = 0;
         if (getLeftChildIndex(index) <= heap.length - 1) {
             let leftIndex = getLeftChildIndex(index);
-            let minValueIndex = leftIndex;
             let rightIndex = getRightChildIndex(index);
-
-            if (rightIndex > heap.length - 1) {
-                minValueIndex = leftIndex;
-            } else {
-                if (heap[rightIndex] > heap[leftIndex]) {
-                    minValueIndex = leftIndex;
-                }
+            let minValueIndex = leftIndex;
+            if (rightIndex <= heap.length - 1 && heap[rightIndex] < heap[leftIndex]) {
+                minValueIndex = rightIndex;
             }
             if (heap[index] > heap[minValueIndex]) {
                 swap(index, minValueIndex);
             }
             index = minValueIndex;
         }
+        /*  if (getLeftChildIndex(index) <= heap.length - 1) {
+             let leftIndex = getLeftChildIndex(index);
+             let minValueIndex = leftIndex;
+             let rightIndex = getRightChildIndex(index);
+ 
+             if (rightIndex > heap.length - 1) {
+                 minValueIndex = leftIndex;
+             } else {
+                 if (heap[rightIndex] > heap[leftIndex]) {
+                     minValueIndex = leftIndex;
+                 }
+             }
+             if (heap[index] > heap[minValueIndex]) {
+                 swap(index, minValueIndex);
+             }
+             index = minValueIndex;
+         } */
 
     }
 
