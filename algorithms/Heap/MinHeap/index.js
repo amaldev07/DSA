@@ -1,5 +1,5 @@
 function MinHeap() {
-    heap = [];
+    let heap = [];
     function getParentIndex(i) {
         return Math.floor((i - 1) / 2);
     }
@@ -36,14 +36,17 @@ function MinHeap() {
             let parentIndex = getParentIndex(index);
             if (heap[parentIndex] > heap[index]) {
                 swap(parentIndex, index);
+                index = parentIndex;
             }
-            index = parentIndex;
+            else {
+                break;
+            }
         }
     }
 
     function heapifyDown() {
         let index = 0;
-        if (getLeftChildIndex(index) <= heap.length - 1) {
+        while (getLeftChildIndex(index) <= (heap.length - 1)) {
             let leftIndex = getLeftChildIndex(index);
             let rightIndex = getRightChildIndex(index);
             let minValueIndex = leftIndex;
@@ -52,29 +55,12 @@ function MinHeap() {
             }
             if (heap[index] > heap[minValueIndex]) {
                 swap(index, minValueIndex);
+                index = minValueIndex;
+            } else {
+                break;
             }
-            index = minValueIndex;
         }
-        /*  if (getLeftChildIndex(index) <= heap.length - 1) {
-             let leftIndex = getLeftChildIndex(index);
-             let minValueIndex = leftIndex;
-             let rightIndex = getRightChildIndex(index);
- 
-             if (rightIndex > heap.length - 1) {
-                 minValueIndex = leftIndex;
-             } else {
-                 if (heap[rightIndex] > heap[leftIndex]) {
-                     minValueIndex = leftIndex;
-                 }
-             }
-             if (heap[index] > heap[minValueIndex]) {
-                 swap(index, minValueIndex);
-             }
-             index = minValueIndex;
-         } */
-
     }
-
     return { insert, extractMin };
 }
 
@@ -82,6 +68,8 @@ let minHeap = new MinHeap();
 minHeap.insert(10);
 minHeap.insert(9);
 minHeap.insert(8);
+minHeap.insert(7);
+minHeap.insert(7);
 minHeap.insert(7);
 minHeap.extractMin();
 
