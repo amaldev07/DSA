@@ -59,5 +59,5 @@ var numEnclaves = function (grid) {
     return count;
 };
 
-let input = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]];
-numEnclaves(input);
+/* let input = [[0, 0, 0, 0], [1, 0, 1, 0], [0, 1, 1, 0], [0, 0, 0, 0]];
+numEnclaves(input); */
