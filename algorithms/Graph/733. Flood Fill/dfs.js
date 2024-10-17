@@ -17,10 +17,10 @@ function dfs(image, r, c, color, initialColor, vis) {
     vis[r][c] = 1;
     image[r][c] = color;
     let sides = [
-        [c - 1, r],
-        [c + 1, r],
-        [c, r - 1],
-        [c, r + 1],
+        [r - 1, c],
+        [r + 1, c],
+        [r, c - 1],
+        [r, c + 1],
     ]
     for (let i = 0; i < sides.length; i++) {
         let x = sides[i][0];
@@ -34,5 +34,5 @@ function dfs(image, r, c, color, initialColor, vis) {
         }
     }
 }
-let arr = [[2,2,2],[2,1,0]];
-floodFill(arr);
+let arr = [[0, 0, 0], [0, 1, 0]];
+floodFill(arr, 0, 0, 2);
