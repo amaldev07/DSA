@@ -1,4 +1,4 @@
-function isValidJs(s)  {
+function isValidJs(s) {
     debugger;
     if (s.length === 0) return true;
     if (s.length % 2 === 1) return false;
@@ -15,7 +15,7 @@ function isValidJs(s)  {
         } else {
             if (paraths[s[i]] == stack[stack.length - 1]) {
                 stack.pop();
-            } else{
+            } else {
                 return false;
             }
         }
