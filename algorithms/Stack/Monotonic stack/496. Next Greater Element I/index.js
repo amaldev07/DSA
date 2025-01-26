@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 var nextGreaterElement = function (nums1, nums2) {
-    let stack = [];
+    let stack = []; //Monotonic stack
     let numMap = new Map();
     for (let i = nums2.length - 1; i >= 0; i--) {
         let el = nums2[i];
@@ -18,5 +18,5 @@ var nextGreaterElement = function (nums1, nums2) {
         }
         stack.push(el);
     }
-    return nums1.map(x => numMap.get(x))
+    return nums1.map(x => numMap.get(x)); // map returns a new array
 };
