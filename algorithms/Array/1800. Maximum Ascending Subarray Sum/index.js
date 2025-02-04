@@ -13,5 +13,5 @@ var maxAscendingSum = function (nums) {
         }
         maxSum = Math.max(sum, maxSum);
     }
-    return maxSum; 
+    return maxSum;
 };
