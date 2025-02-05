@@ -11,7 +11,7 @@ var areAlmostEqual = function (s1, s2) {
             diff.push(i);
         }
     }
-    if (diff.length == 0) return true;
+    /* if (diff.length == 0) return true; not need as altready covered in if (s1 == s2) return true; */
     if (diff.length == 2) {
         const [i, j] = diff;
         if (s1[i] == s2[j] && s1[j] == s2[i]) return true;
