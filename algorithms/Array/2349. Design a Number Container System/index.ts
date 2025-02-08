@@ -25,7 +25,7 @@ class NumberContainers {
 
     find(number: number): number {
         console.log(this.indexMap)
-        if (this.indexMap.has(number) && this.indexMap.get(number).length>0) {
+        if (this.indexMap.has(number) && this.indexMap.get(number).length > 0) {
             let indexes = this.indexMap.get(number);
             return indexes[0];
         } else {
@@ -34,7 +34,7 @@ class NumberContainers {
     }
 
     checkAndAddIndexToNoMap(index, number) {
-        if (this.indexMap.get(number)) {
+        if (this.indexMap.has(number) && this.indexMap.get(number).length > 0) {
             let newNoIdexes = this.indexMap.get(number);
             if (index <= newNoIdexes[0]) {
                 newNoIdexes = [index, ...newNoIdexes];
