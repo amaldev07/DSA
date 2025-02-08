@@ -36,16 +36,18 @@ class NumberContainers {
     checkAndAddIndexToNoMap(index, number) {
         if (this.indexMap.has(number) && this.indexMap.get(number).length > 0) {
             let newNoIdexes = this.indexMap.get(number);
-            if (index <= newNoIdexes[0]) {
-                newNoIdexes = [index, ...newNoIdexes];
-            } else {
-                newNoIdexes.push(index);
-            }
-            this.indexMap.set(number, newNoIdexes)
+            // if (index <= newNoIdexes[0]) {
+                // newNoIdexes.unshift(index);  // Insert at the beginning
+            // } else {
+                newNoIdexes.push(index);  // Insert at the end
+            // }
+            newNoIdexes.sort((a, b) => a - b);
+            this.indexMap.set(number, newNoIdexes);
         } else {
             this.indexMap.set(number, [index]);
         }
     }
+    
 }
 
 /**
