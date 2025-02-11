@@ -16,7 +16,6 @@ function removeOccurrences(s, part) {
             stack.splice(-partLength);
         }
     }
-
     // Join the stack to form the final string
     return stack.join('');
 }
