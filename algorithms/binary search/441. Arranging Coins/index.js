@@ -3,11 +3,18 @@
  * @return {number}
  */
 var arrangeCoins = function (n) {
-    let c = 0;
-    while (n > 0) {
-        c = c + 1;
-        n = n - c;
-        if (n < 0) c = c - 1;
+    let s = 0, e = n;
+    while (s <= e) {
+        let m = Math.floor((s + e) / 2);
+        console.log(m)
+        let sum = m * (m + 1) / 2;
+        if (sum === n) {
+            return m;
+        } else if (sum < n) {
+            s = m + 1;
+        } else {
+            e = m - 1;
+        }
     }
-    return c;
+    return e;
 };
