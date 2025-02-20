@@ -20,6 +20,15 @@ function MinHeap() {
         console.log(heap);
     }
 
+    function extractMin() {
+        if (heap.length == 0) return null;
+        if (heap.length == 1) return heap.pop();
+        let min = heap[0];
+        heap[0] = heap.pop();
+        heapifyDown();
+        return min;
+    }
+
     function heapifyUp() {
         let index = heap.length - 1;
         while (index > 0) {
@@ -31,8 +40,11 @@ function MinHeap() {
         }
     }
 
+    function heapifyDown() {
 
-    return { insert };
+    }
+
+    return { insert, extractMin };
 }
 
 /* let minHeap = new MinHeap();
