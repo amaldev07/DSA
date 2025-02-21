@@ -30,6 +30,24 @@ function MaxHeap() {
         return max;
     }
 
+    function extractMax() {
+        let index = 0;
+        let length = heap.length;
+        while (getLeftChildIndex(index) < length) {
+            let maxValIndex = getLeftChildIndex(index);
+            if (getRightChildIndex(index) < length && getRightChildIndex(index) > getLeftChildIndex(index)) {
+                maxValIndex = getRightChildIndex(index);
+            }
+            if (heap[index] < heap[maxValIndex]) {
+                swap(index, maxValIndex);
+                index = maxValIndex;
+            } else {
+                break;
+            }
+        }
+
+    }
+
     function heapifyUp() {
         let index = heap.length - 1;
         while (index > 0) {
