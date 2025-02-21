@@ -23,6 +23,13 @@ function MaxHeap() {
         console.log(heap);
     }
 
+    function extractMax() {
+        let max = heap[0];
+        heap[0] = heap.pop();
+        heapifyDown();
+        return max;
+    }
+
     function heapifyUp() {
         let index = heap.length - 1;
         while (index > 0) {
