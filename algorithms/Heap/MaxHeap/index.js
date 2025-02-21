@@ -30,7 +30,7 @@ function MaxHeap() {
         return max;
     }
 
-    function extractMax() {
+    function heapifyDown() {
         let index = 0;
         let length = heap.length;
         while (getLeftChildIndex(index) < length) {
@@ -45,7 +45,6 @@ function MaxHeap() {
                 break;
             }
         }
-
     }
 
     function heapifyUp() {
@@ -60,7 +59,7 @@ function MaxHeap() {
             }
         }
     }
-    return { insert }
+    return { insert, extractMax }
 }
 
 let maxHeap = new MaxHeap();
