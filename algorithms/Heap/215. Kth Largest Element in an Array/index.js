@@ -79,10 +79,7 @@ function MinHeap() {
         return heap.length;
     }
 
-    function showHeap() {
-        return heap;
-    }
-    return { insert, extractMin, getLength, showHeap };
+    return { insert, extractMin, getLength };
 }
 
 
