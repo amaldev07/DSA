@@ -4,15 +4,14 @@
  * @return {number}
  */
 var findKthLargest = function (nums, k) {
-    let maxHeap = new MaxHeap();
+    let minHeap = new MinHeap();
     for (let i = 0; i < nums.length; i++) {
-        maxHeap.insert(nums[i]);
+        minHeap.insert(nums[i]);
+        if (minHeap.getLength() > k) {
+            minHeap.extractMin();
+        }
     }
-    let maxVal;
-    for (let i = 0; i < k; i++) {
-        maxVal = maxHeap.extractMax();
-    }
-    return maxVal;
+    return minHeap.extractMin();
 };
 function MinHeap() {
     let heap = [];
@@ -33,7 +32,6 @@ function MinHeap() {
     function insert(val) {
         heap.push(val);
         heapifyUp();
-        console.log(heap);
     }
 
     function extractMin() {
@@ -42,7 +40,6 @@ function MinHeap() {
         let min = heap[0];
         heap[0] = heap.pop();
         heapifyDown();
-        console.log(heap);
         return min;
     }
 
@@ -77,7 +74,15 @@ function MinHeap() {
             }
         }
     }
-    return { insert, extractMin };
+
+    function getLength() {
+        return heap.length;
+    }
+
+    function showHeap() {
+        return heap;
+    }
+    return { insert, extractMin, getLength, showHeap };
 }
 
 
