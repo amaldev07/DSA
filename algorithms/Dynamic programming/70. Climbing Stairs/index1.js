@@ -1,28 +1,23 @@
-/* function climbStairs(n) {
-    return rec(0, n);
-}
-function rec(i, n) {
-    if (i == n) return 1;
-    let l = rec(i + 1, n);
-    let r = 0;
-    if (i + 2 <= n) {
-        r = rec(i + 2, n);
-    }
-    return l + r;
-}
+/**
+ * @param {number} n
+ * @return {number}
  */
-function climbStairs(n) {
-    let dp = new Array(n + 1).fill(-1);
-    return rec(n, n, dp);
-}
-function rec(i, n, dp) {
-    if (i == 0) return 1;
-    if (dp[n] != -1) return dp[n];
-    let l = rec(i - 1, n, dp);
-    let r = 0;
-    if (i - 2 >= 0) {
-        r = rec(i - 2, n, dp);
+var climbStairs = function (n) {
+    let no = 0;
+    return recursion(no, n);
+};
+
+function recursion(x, n) {
+    debugger;
+    console.log(x, n)
+    if (x == n) {
+        return 1;
+    } else if (x > n) {
+        return 0;
     }
-    dp[n] = l + r;
+    let l = recursion(x + 1, n);
+    let r = recursion(x + 2, n);
     return l + r;
 }
+
+climbStairs(2);
