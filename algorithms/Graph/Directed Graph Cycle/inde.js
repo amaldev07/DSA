@@ -44,7 +44,7 @@ main();
 class Solution {
     isCyclic(V, edges) {
         let vis = new Array(V).fill(0);
-        let path = new Array(v).fill(0);
+        let path = new Array(V).fill(0);
         for (let i = 0; i < V; i++) {
             if (vis[i] === 0) {
                 vis[i] = 1;
