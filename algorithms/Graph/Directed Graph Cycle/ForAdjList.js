@@ -15,9 +15,7 @@ function isCyclic(V, edges) {
     return false;
 }
 function dfs(node, vis, path, edges) {
-    console.log(edges[node]);
     for (let i = 0; i < edges[node].length; i++) {
-        // if (edges[node][0] === node) {
         let child = edges[node][i];
         if (vis[child] === 0) {
             vis[child] = 1;
@@ -28,7 +26,6 @@ function dfs(node, vis, path, edges) {
         } else if (path[child] === 1) {
             return true;
         }
-        // }
     }
     path[node] = 0;
     return false;
@@ -44,7 +41,7 @@ const adjList6 = [
     [2, 5],  // 4 → 2, 4 → 5
     [6],     // 5 → 6
     []       // 6 → (no outgoing edges)
-  ];
+];
 // Graph:
 // 0 → 1 → 2 → 3
 //  \→ 2
