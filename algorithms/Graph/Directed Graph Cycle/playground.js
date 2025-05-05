@@ -12,6 +12,7 @@ function isCyclic(V, edges) {
             }
         }
     }
+    return false;
 }
 function dfs(node, vis, path, edges) {
     console.log(edges[node]);
@@ -34,14 +35,17 @@ function dfs(node, vis, path, edges) {
 }
 
 
-const V1 = 4;
-const edges1 = [
-    [1, 2],
-    [2],
-    [3],
-    []
-];
+const V1 = 7;
+const adjList6 = [
+    [1],     // 0 → 1
+    [2],     // 1 → 2
+    [0, 3],  // 2 → 0, 2 → 3
+    [4],     // 3 → 4
+    [2, 5],  // 4 → 2, 4 → 5
+    [6],     // 5 → 6
+    []       // 6 → (no outgoing edges)
+  ];
 // Graph:
 // 0 → 1 → 2 → 3
 //  \→ 2
-console.log(isCyclic(V1, edges1)); 
+console.log(isCyclic(6, adjList6)); 
