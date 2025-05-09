@@ -11,10 +11,10 @@ var countLargestGroup = function (n) {
                 if (map.has(sum)) {
                         let count = map.get(sum) + 1;
                         map.set(sum, count);
-                        Math.max(sumCountMax, count);
+                        sumCountMax = Math.max(sumCountMax, count);
                 } else {
                         map.set(sum, 1);
-                        Math.max(sumCountMax, 1);
+                        sumCountMax = Math.max(sumCountMax, 1);
                 }
         }
         let maxSumCount = 0;
