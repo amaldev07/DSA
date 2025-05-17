@@ -46,10 +46,14 @@ function LInkedList() {
     }
     this.deleteLast = () => {
         let temp = this.head;
-        if (this.tail) {
+        if (this.head === this.tail) {
+            this.head = this.tail = null;
+        } else {
             let node = this.get(this.size - 1);
             node.next = null;
+            this.tail = node;
         }
+        this.size = this.size - 1;
     }
     this.get = (n) => {
         let temp = this.head;
@@ -59,11 +63,22 @@ function LInkedList() {
         return temp;
     }
     this.deleteAtIndex = (n) => {
-        if (n < 0 && n > this.size) {
+        if (n === 0) {
+            this.deleteFirst();
+            return;
+        }
+
+        if (n === this.size - 1) {
+            this.deleteLast();
+            return;
+        }
+
+        if (n < 0 || n > this.size) {
             return false;
         }
         let node = this.get(n - 1);
         node.next = node.next.next;
+        this.size--;
     }
 }
 
