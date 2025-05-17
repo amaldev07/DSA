@@ -16,6 +16,15 @@ function LInkedList() {
         }
         this.size++;
     }
+    this.insertFirst = (val) => {
+        let newNode = new LLNode(val)
+        if (this.head) {
+            newNode.next = this.head;
+            this.head = newNode;
+        } else {
+            this.head = this.tail = newNode;
+        }
+    }
     this.display = () => {
         let vals = [];
         let temp = this.head;
@@ -31,4 +40,6 @@ let myLL = new LInkedList();
 myLL.insertLast(1);
 myLL.insertLast(2);
 myLL.insertLast(3);
+myLL.insertFirst(7);
+myLL.insertFirst(8);
 myLL.display();
