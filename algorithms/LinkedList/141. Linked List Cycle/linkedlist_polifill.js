@@ -57,7 +57,7 @@ function LInkedList() {
     }
     this.get = (n) => {
         let temp = this.head;
-        for (let i = 1; i < n; i++) {
+        for (let i = 0; i < n; i++) {
             temp = temp.next;
         }
         return temp;
