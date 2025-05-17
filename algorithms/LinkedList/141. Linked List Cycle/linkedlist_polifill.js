@@ -58,6 +58,13 @@ function LInkedList() {
         }
         return temp;
     }
+    this.deleteAtIndex = (n) => {
+        if (n < 0 && n > this.size) {
+            return false;
+        }
+        let node = this.get(n - 1);
+        node.next = node.next.next;
+    }
 }
 
 let myLL = new LInkedList();
@@ -67,8 +74,9 @@ myLL.insertLast(3);
 myLL.insertFirst(7);
 myLL.insertFirst(8);
 myLL.display();
-myLL.deleteFirst()
+// myLL.deleteFirst()
+// myLL.display();
+// myLL.deleteLast();
+// myLL.display();
+myLL.deleteAtIndex(3);
 myLL.display();
-myLL.deleteLast();
-myLL.display();
- 
