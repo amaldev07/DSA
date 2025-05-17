@@ -24,6 +24,7 @@ function LInkedList() {
         } else {
             this.head = this.tail = newNode;
         }
+        this.size++;
     }
     this.display = () => {
         let vals = [];
@@ -34,6 +35,29 @@ function LInkedList() {
         }
         console.log(vals.join("->"));
     }
+    this.deleteFirst = () => {
+        if (this.head) {
+            this.head = this.head.next;
+            this.size--;
+        }
+        if (this.head == null) {
+            this.tail = null;
+        }
+    }
+    this.deleteLast = () => {
+        let temp = this.head;
+        if (this.tail) {
+            let node = this.get(this.size - 1);
+            node.next = null;
+        }
+    }
+    this.get = (n) => {
+        let temp = this.head;
+        for (let i = 1; i < n; i++) {
+            temp = temp.next;
+        }
+        return temp;
+    }
 }
 
 let myLL = new LInkedList();
@@ -43,3 +67,8 @@ myLL.insertLast(3);
 myLL.insertFirst(7);
 myLL.insertFirst(8);
 myLL.display();
+myLL.deleteFirst()
+myLL.display();
+myLL.deleteLast();
+myLL.display();
+ 
