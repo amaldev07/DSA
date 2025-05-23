@@ -2,29 +2,31 @@
  * @param {string} s
  * @return {string}
  */
-var reverseVowels = function (s) {
-    if (s.length == 1) return s;
+function reverseVowels(s) {
+    let sArr = s.split("");
+    if (sArr.length == 1) return s;
     let lp = 0;
-    let rp = s.length - 1;
-    let mid = Math.floor(s.length);
+    let rp = sArr.length - 1;
+    let mid = Math.floor(sArr.length / 2);
     debugger;
-    while (lp <= mid && rp >= s.length - mid) {
-        if (isWowel(s[lp]) && isWowel(rp)) {
+    while (lp <= mid && rp >= sArr.length - mid) {
+        if (isWowel(sArr[lp]) && isWowel(sArr[rp])) {
             swap(lp, rp);
             lp = lp + 1;
             rp = rp - 1;
-        } else if (isWowel(lp)) {
+        } else if (isWowel(sArr[lp])) {
             rp = rp - 1;
         } else {
             lp = lp + 1;
         }
     }
-    return s;
-    function isWowel(i) {
-        return 'aeiou'.includes(s[i]);
+    return sArr.join("");
+    function isWowel(ch) {
+        let isvvl = 'aeiou'.includes(ch.toLowerCase());
+        return isvvl;
     }
-    function swap(i,j){
-        [arr[i], arr[j]] = [arr[j], arr[i]];
+    function swap(i, j) {
+        [sArr[i], sArr[j]] = [sArr[j], sArr[i]];
     }
 };
-reverseVowels("icecream")
+console.log(reverseVowels("IceCreAm"));
