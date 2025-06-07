@@ -10,12 +10,13 @@ function findPivot(arr) {
     }
     return left; // index of the pivot
 }
+
 /* 
-1,2,3,4,5,6,7,8,9
-when it rotates
-6,7,8,9,1,2,3,4,5
-here pivot is 1
-that is from there it rotated
-to find pivot we can use the above function
+    1,2,3,4,5,6,7,8,9
+    when it rotates
+    6,7,8,9,1,2,3,4,5
+    here pivot is 1
+    that is from there it rotated
+    to find pivot we can use the above function
 */
 
