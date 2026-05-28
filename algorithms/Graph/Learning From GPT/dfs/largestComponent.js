@@ -4,7 +4,7 @@ function getMaxSize(graph) {
         if (visited.has(node)) return 0;
         visited.add(node);
         let count = 1;
-        for (let neighbour in graph[node]) {
+        for (let neighbour of graph[node]) {
             let countTilleighbourNode = dfs(neighbour);
             count = count + countTilleighbourNode;
         }
