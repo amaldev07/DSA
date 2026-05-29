@@ -4,7 +4,6 @@
  */
 
 var numIslands = function (grid) {
-    debugger;
     let count = 0;
     let vis = Array.from({ length: grid.length }, () => Array(grid[0].length).fill(0));
     for (let i = 0; i < grid.length; i++) {
@@ -23,12 +22,8 @@ function dfs(i, j, vis, grid) { // can be done also using bfs using a queue
         vis[i][j] = 1;
         let neighbours = [
             [i - 1, j],// above node
-            // [i - 1, j + 1], not need to take teh corner nodes 
-            // [i - 1, j - 1], not need to take teh corner nodes 
             [i, j - 1], // below node
             [i, j + 1], // right node
-            // [i + 1, j - 1], not need to take teh corner nodes 
-            // [i + 1, j + 1], not need to take teh corner nodes 
             [i + 1, j], // left node
         ];
         for (let k = 0; k < neighbours.length; k++) {
