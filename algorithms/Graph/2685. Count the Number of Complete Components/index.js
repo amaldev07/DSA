@@ -1,32 +1,43 @@
+/**
+ * @param {number} n
+ * @param {number[][]} edges
+ * @return {number}
+ */
 var countCompleteComponents = function (n, edges) {
-    let count = 0;
-    const graph = Array.from({ length: n }, () => []);
-    for (const [u, v] of edges) {
+    let graph = Array.from({ length: n }, () => {
+        return [];
+    });
+    for (let [u, v] of edges) {
         graph[u].push(v);
-        graph[v].push(u); // undirected graph
+        graph[v].push(u);
     }
-    console.log(graph);
+    let visited = new Set();
 
-    const visited = new Set();
-    function dfs(node, prev) {
-        if (visited.has(node)) return;
-
+    function dfs(node) {
+        if (visited.has(node)) return { nodes: 0, degreeSum: 0 };
         visited.add(node);
-        for (let item of graph[node]) {
-            if (visited.has(item) && item != prev) {
-                count++;
-                return;
-            } else {
-                dfs(item, node);
+        let nodes = 1;
+        let degreeSum = graph[node].length;
+        for (let neighbour of graph[node]) {
+            let result = dfs(neighbour);
+            nodes = nodes + result.nodes;
+            degreeSum = degreeSum + result.degreeSum;
+        }
+        return { nodes, degreeSum };
+
+    }
+
+    let completedComponents = 0;
+    for (let i = 0; i < n; i++) {
+        if (!visited.has(i)) {
+            let result = dfs(i);
+            let nodes = result.nodes;
+            let edges = result.degreeSum / 2;
+            let expectedEdges = (nodes) * (nodes - 1) / 2;
+            if (expectedEdges == edges) {
+                completedComponents = completedComponents + 1;
             }
         }
     }
-
-    for (let i = 0; i < n; i++) {
-        if (!visited.has(i)) {
-            dfs(i, -1);
-        }
-    }
-    return count;
-
+    return completedComponents;
 };
