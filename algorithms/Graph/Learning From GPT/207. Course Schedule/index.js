@@ -11,7 +11,7 @@ var canFinish = function (numCourses, prerequisites) {
 
     let visited = new Set();
     let pathVisited = new Set();
-    function dfs(node) {
+    function hasCycleDfs(node) {
         if (pathVisited.has(node)) return true;
         if (visited.has(node)) return false;
 
@@ -19,7 +19,7 @@ var canFinish = function (numCourses, prerequisites) {
         visited.add(node);
 
         for (let neighbour of graph[node]) {
-            if (dfs(neighbour)) {
+            if (hasCycleDfs(neighbour)) {
                 return true;
             }
         }
@@ -28,7 +28,7 @@ var canFinish = function (numCourses, prerequisites) {
     }
 
     for (let coure = 0; coure < graph.length; coure++) {
-        if (dfs(coure)) {
+        if (hasCycleDfs(coure)) {
             return false;
         }
     }
