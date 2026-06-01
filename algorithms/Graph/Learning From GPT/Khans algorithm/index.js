@@ -58,7 +58,7 @@ function kahnsAlgorithm(numNodes, edges) {
         let node = queue.shift();
         result.push(node);
 
-        for (neighbour of graph[node]) {
+        for (let neighbour of graph[node]) {
             indegree[neighbour]--;
             if (indegree[neighbour] === 0) {
                 queue.push(neighbour);
