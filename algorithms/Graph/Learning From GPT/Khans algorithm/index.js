@@ -60,7 +60,7 @@ function kahnsAlgorithm(numNodes, edges) {
 
         for (neighbour of graph[node]) {
             indegree[neighbour]--;
-            if (indegree[neighbour === 0]) {
+            if (indegree[neighbour] === 0) {
                 queue.push(neighbour);
             }
         }
