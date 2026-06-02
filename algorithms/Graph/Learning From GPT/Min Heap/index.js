@@ -20,6 +20,7 @@ class MinHeap {
     }
     removeMin() {
         if (this.heap.length == 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
         let min = this.heap[0];
         this.heap[0] = this.heap.pop();
         let index = 0;
