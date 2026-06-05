@@ -39,7 +39,7 @@ function dijkstra(graph, source) {
     while (heap.size() > 0) {
         let [node, dist] = heap.removeMin();
 
-        if (distance[node] < dist) {
+        if (dist > distance[node]) {
             continue;
         }
 
