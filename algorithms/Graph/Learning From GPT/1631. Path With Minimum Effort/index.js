@@ -5,8 +5,8 @@
 var minimumEffortPath = function (heights) {
     let rows = heights.length;
     let columns = heights[0].length;
-    let effort = Array.from({ length: rows }, () => { Array(columns).fill(Infinity) });
-    let heap = new MinHeap();
+    let effort = Array.from({ length: rows }, () => Array(columns).fill(Infinity));
+    let heap = new MyMinHeap();
 
     effort[0][0] = 0;
     heap.insert([0, 0, 0])
@@ -26,12 +26,12 @@ var minimumEffortPath = function (heights) {
         } */
         for (let [dr, dc] of edges) {
             const newRow = row + dr;
-            const newCol = col + dc;
+            const newCol = column + dc;
             if (
                 newRow < 0 ||
                 newRow >= rows ||
                 newCol < 0 ||
-                newCol >= cols
+                newCol >= columns
             ) {
                 continue;
             }
@@ -39,32 +39,29 @@ var minimumEffortPath = function (heights) {
             let newEffort = Math.max(currentEffort, Math.abs(heights[newRow][newCol] - heights[row][column]));
             if (newEffort < effort[newRow][newCol]) {
                 effort[newRow][newCol] = newEffort;
-                heap.push([newRow, newCol, newEffort]);
+                heap.insert([newRow, newCol, newEffort]);
             }
         }
     }
+    return effort[rows - 1][columns - 1];
 };
 
-class MinHeap {
+class MyMinHeap {
     constructor() {
         this.heap = [];
     }
     size() {
-        return this.heap.size;
+        return this.heap.length;
     }
     peek() {
-        retunr
-        this.heap[0];
-    }
-    removeMin() {
-
+        return this.heap[0];
     }
     insert([row, column, effort]) {
-        this.heap, push(value);
+        this.heap.push([row, column, effort]);
         let index = this.heap.length - 1;
         let parentIndex = Math.floor((index - 1) / 2);
         while (index > 0) {
-            if (this.heap[parentIndex][2] < this.heap[index][2]) {
+            if (this.heap[parentIndex][2] <= this.heap[index][2]) {
                 break;
             }
 
@@ -76,18 +73,21 @@ class MinHeap {
 
     }
     removeMin() {
+        if (this.heap.length === 0) return null;
+        if (this.heap.length === 1) return this.heap.pop();
+
         let min = this.heap[0];
-        this.heap[0] = this.heap[n - 1];
+        this.heap[0] = this.heap.pop();
         let index = 0;
         while (true) {
             let minIndex = index;
             let leftChildIndex = (index * 2) + 1;
             let rightChildIndex = (index * 2) + 2;
-            if (this.heap[leftChildIndex][2] < this.heap[index][2]) {
+            if (leftChildIndex < this.heap.length && this.heap[leftChildIndex][2] < this.heap[minIndex][2]) {
                 minIndex = leftChildIndex;
             }
 
-            if (this.heap[rightChildIndex][2] < this.heap[index][2]) {
+            if (rightChildIndex < this.heap.length && this.heap[rightChildIndex][2] < this.heap[minIndex][2]) {
                 minIndex = rightChildIndex;
             }
             if (minIndex == index) break;
