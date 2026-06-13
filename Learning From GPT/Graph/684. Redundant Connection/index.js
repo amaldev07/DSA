@@ -4,7 +4,7 @@
  */
 var findRedundantConnection = function (edges) {
     let n = edges.length;
-    let parent = Array.from({ length: n+1 }, (_, i) => i);
+    let parent = Array.from({ length: n + 1 }, (_, i) => i);
     for (let [a, b] of edges) {
         let leaderofA = find(a);
         let leaderofB = find(b);
