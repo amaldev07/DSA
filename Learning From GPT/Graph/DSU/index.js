@@ -1,5 +1,5 @@
 class Dsu {
-    constructor() {
+    constructor(n) {
         this.parent = [];
         for (let i = 0; i < n; i++) {
             this.parent[i] = i;
@@ -7,8 +7,8 @@ class Dsu {
     }
 
     find(node) {
-        while (this.parent[node] != node) {
-            this.parent[node] = this.find(this.parent[node])
+        if (this.parent[node] !== node) {
+            this.parent[node] = this.find(this.parent[node]);
         }
         return this.parent[node];
     }
@@ -18,5 +18,6 @@ class Dsu {
         let leaderB = this.find(b);
         if (leaderA === leaderB) return false;
         this.parent[leaderB] = leaderA;
+        return true;
     }
 }
