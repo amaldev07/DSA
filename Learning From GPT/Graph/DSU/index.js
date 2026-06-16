@@ -13,10 +13,10 @@ class Dsu {
         return this.parent[node];
     }
 
-    union(a,b){
-        let leaderA =  this.find(a);
-        let leaderB =  this.find(b);
-        if(leaderA === leaderB) return false;
+    union(a, b) {
+        let leaderA = this.find(a);
+        let leaderB = this.find(b);
+        if (leaderA === leaderB) return false;
         this.parent[leaderB] = leaderA;
     }
 }
