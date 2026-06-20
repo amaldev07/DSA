@@ -10,11 +10,11 @@ var lastStoneWeight = function(stones) {
     while(heap.size()>1){
         let a = heap.removeMax();
         let b = heap.removeMax();
-        if(a>=b){
+        if(a>b){
             heap.insert(a-b);
         }
     }
-    return heap.peek();
+    return heap.size() === 0 ? 0 : heap.peek();
 };
 
 class MyMaxHeap {
